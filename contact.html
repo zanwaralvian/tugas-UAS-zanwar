@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Nama Anda</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo"></div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li> </ul>
+        </nav>
+    </header>
+
+    <main class="contact-section">
+        <h1 class="page-title fade-in-up delay-1">ingin bertanya? Kirimkan pesan Anda!</h1>
+        <p class="subtitle fade-in-up delay-2">
+    
+        </p>
+
+        <form class="contact-form fade-in-up delay-3" action="mailto:emailanda@example.com" method="POST" enctype="text/plain">
+            
+            <div class="form-group">
+                <label for="name">Nama Anda:</label>
+                <input type="text" id="name" name="Nama" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Anda:</label>
+                <input type="email" id="email" name="Email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">No. Telepon/WA (Opsional):</label>
+                <input type="tel" id="phone" name="Telepon_WA">
+            </div>
+
+            <div class="form-group">
+                <label for="message">Pesan Anda:</label>
+                <textarea id="message" name="Pesan" rows="6" required></textarea>
+            </div>
+
+            <button type="submit" class="submit-button cta-button">Kirim Pesan</button>
+        </form>
+        
+        <section class="alternative-contact fade-in-up delay-4">
+            <h2>Atau Hubungi Saya Melalui:</h2>
+            <div class="contact-links">
+                <p>Email: <a href="mailto:emailanda@example.com">Zanwaralvian71@gmail.com</a></p>
+                <p>No Telepon : 089664348840</p>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>

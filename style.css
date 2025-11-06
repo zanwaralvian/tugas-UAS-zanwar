@@ -1,0 +1,431 @@
+/* --- 1. SETUP GLOBAL & TIPOGRAFI --- */
+/* Menggunakan font Poppins dari Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+    --color-bg: #FFFFFF;        /* Putih (Latar Belakang Utama) */
+    --color-text: #1A1A1A;      /* Hitam (Teks) */
+    --color-accent: #007BFF;    /* Electric Blue (Aksen Keren) */
+    --color-light-gray: #F5F5F5; /* Abu-abu Muda (Pendukung) */
+    --font-primary: 'Poppins', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.6;
+}
+
+/* --- 2. LAYOUT / FRAME: HEADER (NAVIGASI) --- */
+.main-header {
+    /* Implementasi Sticky Header */
+    position: sticky; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    
+    /* Frame Layout dengan Flexbox */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background-color: rgba(255, 255, 255, 0.95); /* Sedikit Transparan */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: var(--color-accent);
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.main-nav ul li a {
+    text-decoration: none;
+    color: var(--color-text);
+    margin-left: 25px;
+    font-weight: 600;
+    /* Efek Transisi untuk Hover */
+    transition: color 0.3s ease; 
+}
+
+/* Animasi Hover Keren pada Navigasi */
+.main-nav ul li a:hover,
+.main-nav ul li a.active {
+    color: var(--color-accent);
+}
+
+
+/* --- 3. LAYOUT / FRAME: HOME SECTION --- */
+.hero-section {
+    min-height: 80vh;
+    /* Frame Layout untuk konten di tengah halaman */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 5%;
+    text-align: center;
+}
+
+.home-content {
+    max-width: 900px;
+    width: 100%;
+    /* Frame: Flexbox untuk mengatur foto dan teks */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.profile-image img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%; /* Efek foto circular */
+    object-fit: cover;
+    border: 5px solid var(--color-light-gray);
+    /* Animasi: Transisi Skala saat Hover */
+    transition: transform 0.4s ease;
+}
+
+.profile-image img:hover {
+    transform: scale(1.05);
+}
+
+.text-content h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.text-content p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+/* Call to Action Button */
+.cta-button {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: var(--color-accent);
+    color: var(--color-bg);
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    /* Animasi: Transisi Warna saat Hover */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #0056b3; /* Warna sedikit lebih gelap */
+    transform: translateY(-2px); /* Efek 'terangkat' */
+}
+
+
+/* --- 4. IMPLEMENTASI ANIMASI CSS: FADE-IN UP --- */
+
+/* Keyframes untuk Animasi Fade-In dari bawah ke atas */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Kelas untuk menerapkan animasi */
+.fade-in-up {
+    opacity: 0; /* Mulai dari tidak terlihat */
+    animation: fadeInUp 0.6s forwards;
+}
+
+/* Menambahkan delay (penundaan) untuk efek berurutan (staggered effect) */
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.3s; }
+.delay-3 { animation-delay: 0.5s; }
+
+/* Anda perlu menambahkan Media Queries di sini untuk responsif */
+/* Contoh:
+@media (max-width: 768px) {
+    .text-content h1 { font-size: 2.5em; }
+    ...
+}
+*/
+/* Lanjutan dari style.css */
+
+.about-section {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 100px 5% 50px; /* Jarak dari header */
+}
+
+.page-title {
+    text-align: center;
+    font-size: 3em;
+    margin-bottom: 50px;
+}
+
+.info-section, .education-section, .skills-section {
+    margin-bottom: 60px;
+    padding: 30px;
+    background-color: var(--color-light-gray);
+    border-radius: 8px;
+}
+
+.info-section h2, .education-section h2, .skills-section h2 {
+    color: var(--color-accent);
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--color-accent);
+    padding-bottom: 10px;
+}
+
+/* Desain Timeline */
+.timeline {
+    border-left: 2px solid var(--color-accent);
+    padding-left: 20px;
+}
+
+.timeline-item {
+    position: relative;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    left: -25px;
+    top: 5px;
+    border: 2px solid var(--color-bg);
+}
+
+.timeline-meta {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 5px;
+}
+
+/* Desain Skills Progress Bar (Keren & Minimalis) */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 25px;
+}
+
+.progress-bar-container {
+    height: 8px;
+    background-color: #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 5px;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: var(--color-accent);
+    /* Animasi CSS Bar mengisi saat dimuat */
+    animation: fillBar 1.5s ease-out forwards;
+}
+
+@keyframes fillBar {
+    from { width: 0; }
+    /* Lebar aktual diatur inline style="width: XX%;" */
+}
+/* Lanjutan dari style.css */
+
+.portfolio-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 5% 50px;
+}
+
+/* Grid Layout untuk Portfolio */
+.portfolio-grid {
+    display: grid;
+    /* Grid 3 kolom, responsif */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 30px;
+}
+
+.project-card {
+    display: block;
+    text-decoration: none;
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    border: 3px solid transparent; /* Border default transparan */
+    
+    /* Transisi untuk efek hover keren */
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+/* Animasi Hover Keren pada Card */
+.project-card:hover {
+    transform: translateY(-8px); /* Card sedikit terangkat */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border-color: var(--color-accent); /* Border muncul dengan warna aksen */
+}
+
+.card-image-wrapper {
+    overflow: hidden;
+}
+
+.project-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    /* Transisi skala pada gambar saat hover pada card */
+    transition: transform 0.4s ease; 
+}
+
+.project-card:hover img {
+    transform: scale(1.05); /* Gambar sedikit membesar */
+}
+
+.card-info {
+    padding: 20px;
+}
+
+.card-info h3 {
+    font-size: 1.5em;
+    margin-bottom: 5px;
+}
+
+.view-link {
+    display: inline-block;
+    color: var(--color-accent);
+    font-weight: 600;
+    margin-top: 10px;
+}
+/* 3. Kartu proyek (Portfolio) dengan efek "lift & shadow" */
+.project {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    border-radius: 12px;
+    background: rgb(95, 255, 100);
+    box-shadow: 0 4px 10px rgba(180, 125, 125, 0.08);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.project::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom, #6e8efb, #a777e3);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.5s ease;
+}
+
+.project:hover::before {
+    transform: scaleY(1);
+}
+
+.project:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+}
+/* Lanjutan dari style.css */
+
+.contact-section {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 100px 5% 50px;
+    text-align: center;
+}
+
+.subtitle {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 40px;
+}
+
+.contact-form {
+    background-color: var(--color-light-gray);
+    padding: 30px;
+    border-radius: 8px;
+    text-align: left;
+    margin-bottom: 50px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form input[type="tel"],
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: var(--font-primary);
+    font-size: 1em;
+    outline: none; /* Hilangkan outline default browser */
+    
+    /* Implementasi Animasi CSS Transisi untuk Fokus Keren */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; 
+}
+
+/* Animasi Fokus Keren: Border berubah warna aksen dan muncul shadow halus */
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--color-accent); /* Border berubah menjadi warna aksen */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Shadow halus muncul */
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.submit-button {
+    width: 100%;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.alternative-contact {
+    margin-top: 40px;
+}
+
+.contact-links a {
+    color: var(--color-accent);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.contact-links a:hover {
+    text-decoration: underline;
+}
